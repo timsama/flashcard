@@ -6,7 +6,10 @@
 </ul>
 <h1>Add a Flashcard</h1>
 <%= form_for @new_flashcard, :url=>{:action=>"create"} do |f| %>
-  Keyword <%= f.text_field :keyword %><br>
-  Kanji <%= f.text_field :kanji %><br>
+  <%= f.label :keyword %>
+  <%= f.text_field :keyword %>
+
+  <%= f.label :kanji %>
+  <%= f.text_field :kanji %>
   <%= f.submit "Create Flashcard", class: "btn btn-primary" %>
 <% end %>
