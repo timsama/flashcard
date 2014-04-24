@@ -5,7 +5,7 @@
 <ul class="list-group">
 <% for flashcard in @flashcards %>
   <li class="list-group-item"><%= link_to flashcard.keyword, edit_flashcard_path(flashcard.id) %> 
-  	<%= link_to "X", flashcard_path(flashcard.id), :method => :delete, class: "btn btn-danger pull-right" %><p><p></li>
+  	<%= link_to "", flashcard_path(flashcard.id), :method => :delete, class: "btn btn-danger pull-right glyphicon glyphicon-remove" %><p><p></li>
 <% end %>
 </ul>
 <h2><%= button_to "Add a New Flashcard", new_flashcard_path, :method => :get, class: "btn btn-primary" %><h2>

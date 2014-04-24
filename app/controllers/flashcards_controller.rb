@@ -2,6 +2,8 @@ class FlashcardsController < ApplicationController
   def new
     @new_flashcard = Flashcard.new
     @flashcards = Flashcard.all
+    @random_card = rand(Flashcard.count - 1) + 1
+
   end
 
   def destroy
@@ -9,17 +11,23 @@ class FlashcardsController < ApplicationController
     destroy_flashcard.destroy
     redirect_to :action => :index
     @flashcards = Flashcard.all
+    @random_card = rand(Flashcard.count - 1) + 1
+
   end
 
   def create
     Flashcard.create(:keyword => params[:flashcard][:keyword], :kanji => params[:flashcard][:kanji])
     redirect_to :action => :index
     @flashcards = Flashcard.all
+    @random_card = rand(Flashcard.count - 1) + 1
+
   end
 
   def edit
     @edit_flashcard = Flashcard.find_by_id(params[:id])
     @flashcards = Flashcard.all
+    @random_card = rand(Flashcard.count - 1) + 1
+
   end
 
   def update
@@ -27,6 +35,8 @@ class FlashcardsController < ApplicationController
     update_flashcard.update(:keyword => params[:flashcard][:keyword], :kanji => params[:flashcard][:kanji])
     redirect_to :action => :index
     @flashcards = Flashcard.all
+    @random_card = rand(Flashcard.count - 1) + 1
+
   end
 
   def index
@@ -35,6 +45,8 @@ class FlashcardsController < ApplicationController
       @random_card = rand(Flashcard.maximum('id')) + 1
     end
     @flashcards = Flashcard.all
+    @random_card = rand(Flashcard.count - 1) + 1
+
   end
 
   def test
@@ -42,9 +54,12 @@ class FlashcardsController < ApplicationController
     @answer_flashcard = Flashcard.new
     @answer_flashcard.kanji = test_flashcard.kanji
     @flashcards = Flashcard.all
+    @random_card = rand(Flashcard.count - 1) + 1
+
   end
 
   def answer
+    @random_card = rand(Flashcard.count - 1) + 1
     test_flashcard = Flashcard.find_by_id(params[:id])
     if params[:flashcard][:keyword] == test_flashcard.keyword
       redirect_to :action => :correct
