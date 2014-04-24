@@ -9,4 +9,5 @@
 <% end %>
 </ul>
 <h2><%= button_to "Add a New Flashcard", new_flashcard_path, :method => :get, class: "btn btn-primary" %><h2>
+<h2><%= link_to "Start Flashcard Test", test_flashcard_path(@random_card) %></h2>
 </div>

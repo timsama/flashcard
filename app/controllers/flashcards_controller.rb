@@ -30,18 +30,15 @@ class FlashcardsController < ApplicationController
   end
 
   def index
+    @random_card = rand(Flashcard.count - 1) + 1
     @flashcards = Flashcard.all
-  end
-
-  def randomcard
-    random_id = rand(Flashcard.count)
-    redirect_to :action => :test, :id => random_id
   end
 
   def test
     test_flashcard = Flashcard.find_by_id(params[:id])
     @answer_flashcard = Flashcard.new
     @answer_flashcard.kanji = test_flashcard.kanji
+    @flashcards = Flashcard.all
   end
 
   def answer
@@ -54,10 +51,13 @@ class FlashcardsController < ApplicationController
   end
 
   def correct
-    @correct_flashcard = Flashcard.find_by_id(params[:id])
+    @random_card = rand(Flashcard.count - 1) + 1
+    @flashcards = Flashcard.all
   end
 
   def incorrect
+    @random_card = rand(Flashcard.count - 1) + 1
     @correct_flashcard = Flashcard.find_by_id(params[:id])
+    @flashcards = Flashcard.all
   end
 end
