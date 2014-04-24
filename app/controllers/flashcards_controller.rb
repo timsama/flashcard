@@ -28,6 +28,31 @@ class FlashcardsController < ApplicationController
     @flashcards = Flashcard.all
   end
 
+  def randomcard
+    random_id = rand(Flashcard.count)
+    redirect_to :action => :test, :id => random_id
+  end
+
   def test
+    test_flashcard = Flashcard.find_by_id(params[:id])
+    @answer_flashcard = Flashcard.new
+    @answer_flashcard.kanji = test_flashcard.kanji
+  end
+
+  def answer
+    test_flashcard = Flashcard.find_by_id(params[:id])
+    if params[:flashcard][:keyword] == test_flashcard.keyword
+      redirect_to :action => :correct
+    else
+      redirect_to :action => :incorrect
+    end
+  end
+
+  def correct
+    @correct_flashcard = Flashcard.find_by_id(params[:id])
+  end
+
+  def incorrect
+    @correct_flashcard = Flashcard.find_by_id(params[:id])
   end
 end

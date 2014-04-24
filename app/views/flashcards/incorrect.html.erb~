@@ -1,0 +1,6 @@
+<h1>View Answer</h1>
+<div class="well well-lg">
+  <h2>Sorry, that's not correct.</h2>
+  <p>The correct keyword for <%= @correct_flashcard.kanji %> is <%= @correct_flashcard.keyword %>.</p>
+  <%= link_to "Next Kanji Flashcard", :action => :test %>
+</div>

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :flashcards
+  get 'flashcards/randomcard' => 'flashcards#randomcard', as: :random_flashcard
+  get 'flashcards/:id/test' => 'flashcards#test', as: :test_flashcard
+  post 'flashcards/:id/answer' => 'flashcards#answer', as: :answer_flashcard
+  get 'flashcards/:id/correct' => 'flashcards#correct', as: :correct_flashcard
+  get 'flashcards/:id/incorrect' => 'flashcards#incorrect', as: :incorrect_flashcard
   root :to => 'flashcards#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
