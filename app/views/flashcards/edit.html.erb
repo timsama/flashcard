@@ -1,11 +1,15 @@
+<div class="well well-lg">
+	<div class="well well-sm">
 <h1>Edit Flashcard</h1>
+	</div>
 <%= form_for @edit_flashcard, :url=>{:action=>"update"} do |f| %>
   <%= f.label :keyword %>
   <%= f.text_field :keyword %>
-<br>
+<P><p>
   <%= f.label :kanji %>
   <%= f.text_field :kanji %>
-<br>
+<p>
   <%= f.submit "Update Flashcard", class: "btn btn-primary" %>
   <%= link_to "Go Back", :action => :index %>
+</div>
 <% end %>
