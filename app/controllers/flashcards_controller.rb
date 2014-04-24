@@ -3,6 +3,12 @@ class FlashcardsController < ApplicationController
     @new_flashcard = Flashcard.new
   end
 
+  def destroy
+    destroy_flashcard = Flashcard.find_by_id(params[:id])
+    destroy_flashcard.destroy
+    redirect_to :action => :index
+  end
+
   def create
     Flashcard.create(:keyword => params[:flashcard][:keyword], :kanji => params[:flashcard][:kanji])
     redirect_to :action => :index
