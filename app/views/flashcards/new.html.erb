@@ -1,9 +1,3 @@
-<h1>View Flashcards</h1>
-<ul>
-<% for flashcard in @flashcards %>
-  <li><%= flashcard.keyword %></li>
-<% end %>
-</ul>
 <h1>Add a Flashcard</h1>
 <%= form_for @new_flashcard, :url=>{:action=>"create"} do |f| %>
   <%= f.label :keyword %>
@@ -13,4 +7,5 @@
   <%= f.text_field :kanji %>
 <br>
   <%= f.submit "Create Flashcard", class: "btn btn-primary" %>
+  <%= button_to "Cancel", flashcards, :method => :get %>
 <% end %>

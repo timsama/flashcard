@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'flashcards#create'
-  get 'flashcards#edit'
-  get 'flashcards#test'
   resources :flashcards
   root :to => 'flashcards#view'
 

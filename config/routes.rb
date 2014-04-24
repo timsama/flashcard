@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'flashcards/:create' => 'flashcards#create'
-  get 'flashcards/:edit' => 'flashcards#edit'
-  get 'flashcards/:test' => 'flashcards#test'
   resources :flashcards
-  root :to => 'flashcards#view'
+  root :to => 'flashcards#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

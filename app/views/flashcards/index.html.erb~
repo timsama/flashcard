@@ -1,0 +1,7 @@
+<h1>View Flashcards</h1>
+<ul>
+<% for flashcard in @flashcards %>
+  <li><%= link_to flashcard.keyword, edit_flashcard_path(flashcard.id) %></li>
+<% end %>
+</ul>
+<h2><%= button_to "Create New Flashcard", new_flashcard_path, :method => :get %><h2>
