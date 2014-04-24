@@ -1,5 +1,7 @@
 <h1>View Answer</h1>
 <div class="well well-lg">
   <h2>Correct!</h2>
-  <%= link_to "Next Kanji Flashcard", test_flashcard_path(@next_card) %>
+  <%= link_to "Next Kanji Flashcard", test_flashcard_path(@random_card) %>
+  <br>
+  <%= link_to "Return to Index", :action => :index %>
 </div>

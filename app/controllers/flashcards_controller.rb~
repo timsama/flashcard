@@ -30,6 +30,10 @@ class FlashcardsController < ApplicationController
   end
 
   def index
+    @random_card = rand(Flashcard.maximum('id')) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id')) + 1
+    end
     @flashcards = Flashcard.all
   end
 
@@ -50,12 +54,18 @@ class FlashcardsController < ApplicationController
   end
 
   def correct
-    @random_card = rand(Flashcard.count - 1) + 1
+    @random_card = rand(Flashcard.maximum('id') - 1) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id') - 1) + 1
+    end
     @flashcards = Flashcard.all
   end
 
   def incorrect
-    @random_card = rand(Flashcard.count - 1) + 1
+    @random_card = rand(Flashcard.maximum('id') - 1) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id') - 1) + 1
+    end
     @correct_flashcard = Flashcard.find_by_id(params[:id])
     @flashcards = Flashcard.all
   end
