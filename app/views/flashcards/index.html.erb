@@ -1,7 +1,11 @@
+<div class="well well-lg">
+	<div class="well well-sm">
 <h1>View Flashcards</h1>
-<ul>
+	</div>
+<ul class="list-group">
 <% for flashcard in @flashcards %>
-  <li><%= link_to flashcard.keyword, edit_flashcard_path(flashcard.id) %> <%= link_to "[delete]", flashcard_path(flashcard.id), :method => :delete %></li>
+  <li class="list-group-item"><%= link_to flashcard.keyword, edit_flashcard_path(flashcard.id) %> <%= link_to "[delete]", flashcard_path(flashcard.id), :method => :delete %></li>
 <% end %>
 </ul>
-<h2><%= button_to "Add a New Flashcard", new_flashcard_path, :method => :get %><h2>
+<h2><%= button_to "Add a New Flashcard", new_flashcard_path, :method => :get, class: "btn btn-primary" %><h2>
+</div>

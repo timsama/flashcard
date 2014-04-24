@@ -1,15 +1,19 @@
+<h1>View Fddlashcards</h1>
 <div class="well well-lg">
-	<div class="well well-sm">
+<ul>
+<% for flashcard in @flashcards %>
+  <li><%= flashcard.keyword %></li>
+<% end %>
+</ul>
 <h1>Add a Flashcard</h1>
-	</div>
 <%= form_for @new_flashcard, :url=>{:action=>"create"} do |f| %>
   <%= f.label :keyword %>
   <%= f.text_field :keyword %>
-<P><p>
+<br>
   <%= f.label :kanji %>
   <%= f.text_field :kanji %>
-<P>
+<br>
   <%= f.submit "Create Flashcard", class: "btn btn-primary" %>
-  <%= link_to "Go Back", class: "btn btn-default", :action => :index %>
+
 </div>
 <% end %>
