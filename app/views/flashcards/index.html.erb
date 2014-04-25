@@ -1,13 +1,27 @@
 <div class="well well-lg">
-	<div class="well well-sm">
 <h1>View Flashcards</h1>
-	</div>
-<ul class="list-group">
+
+
+<div class="well well-sm">
+<table class="table table-striped">
+<thead>
+	<tr>
+		<th>Keyword</th>
+		<th>Kanji</th>
+		<th class="pull-right">Delete</th>
+	</tr>
+</thead>
+<tbody>
 <% for flashcard in @flashcards %>
-  <li class="list-group-item"><%= link_to flashcard.keyword, edit_flashcard_path(flashcard.id) %> 
-  	<%= link_to "", flashcard_path(flashcard.id), :method => :delete, class: "btn btn-danger pull-right glyphicon glyphicon-remove" %><p><p></li>
+  <tr>
+  	<td><font style="font-size:40px"><%= link_to flashcard.keyword, edit_flashcard_path(flashcard.id) %> </font></td>
+  	<td><font style="font-size:40px"><%= flashcard.kanji %></font></td>
+  	<td><%= link_to "", flashcard_path(flashcard.id), :method => :delete, class: "btn btn-danger pull-right glyphicon glyphicon-remove" %></td>
+  </tr>
 <% end %>
-</ul>
-<h2><%= button_to "Add a New Flashcard", new_flashcard_path, :method => :get, class: "btn btn-primary" %><h2>
-<h2><%= link_to "Start Flashcard Test", test_flashcard_path(@random_card) %></h2>
+</tbody>
+</table>
+</div>
+
+<%= button_to "Add a New Flashcard", new_flashcard_path, :method => :get, class: "btn btn-primary" %>
 </div>

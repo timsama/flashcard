@@ -5,12 +5,11 @@
 </center>
 </div>
 <%= form_for @answer_flashcard, :url=>{:action=>"answer"} do |f| %>
-  <center><div class="well well-sm"><h1><%= @answer_flashcard.kanji %></h1></div>
+  <center><div class="well well-sm"><font style="font-size:250px"><%= @answer_flashcard.kanji %></font></div>
   <%= f.label "Enter Keyword:" %>
   <%= f.text_field :keyword %>
 <p><p>
   <%= f.submit "Check Answer", class: "btn btn-primary" %><p>
-  <%= link_to "Return to Index", :action => :index %>
   </center>
 </div>
 <% end %>

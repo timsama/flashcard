@@ -1,9 +1,12 @@
 <div class="well well-lg">
-<h1>View Answer</h1>
-<div class="well well-lg">
-  <h2>Correct!</h2>
-  <%= link_to "Next Kanji Flashcard", test_flashcard_path(@random_card), class: "btn btn-primary" %>
+	<center>
+<h1>Correct!</h1>
+<div class="alert alert-success">
+  <h4>You answered correctly.</h4>
+  
 <p/><p/>
-  <%= link_to "Return to Index", :action => :index %>
+  
 </div>
+<%= link_to "Next Kanji Flashcard", test_flashcard_path(@random_card), class: "btn btn-primary" %>
+</center>
 </div>
