@@ -1,9 +1,16 @@
-<h1>Write the keyword</h1>
+<div class="well well-lg">
+	<div class="well well-sm">
+		<center>
+<h1>Type the keyword</h1>
+</center>
+</div>
 <%= form_for @answer_flashcard, :url=>{:action=>"answer"} do |f| %>
-  <h2><%= @answer_flashcard.kanji %></h2>
+  <center><div class="well well-sm"><h1><%= @answer_flashcard.kanji %></h1></div>
   <%= f.label "Enter Keyword:" %>
   <%= f.text_field :keyword %>
-<br>
-  <%= f.submit "Check Answer", class: "btn btn-primary" %>
+<p><p>
+  <%= f.submit "Check Answer", class: "btn btn-primary" %><p>
   <%= link_to "Return to Index", :action => :index %>
+  </center>
+</div>
 <% end %>

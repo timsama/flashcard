@@ -1,8 +1,10 @@
+<div class="well well-lg">
 <h1>View Answer</h1>
 <div class="well well-lg">
   <h2>Sorry, that's not correct.</h2>
-  <p>The correct keyword for <%= @correct_flashcard.kanji %> is <%= @correct_flashcard.keyword %>.</p>
-  <%= link_to "Next Kanji Flashcard", test_flashcard_path(@random_card) %>
+  <p>The correct keyword for <h1><b><%= @correct_flashcard.kanji %></b></h1> is <h1><%= @correct_flashcard.keyword %></h1></p>
+  <%= link_to "Next Kanji Flashcard", test_flashcard_path(@random_card), class: "btn btn-primary" %>
 <p/><p/>
   <%= link_to "Return to Index", :action => :index %>
+</div>
 </div>

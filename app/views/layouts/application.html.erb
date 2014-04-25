@@ -21,7 +21,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       
-      <a class="navbar-brand" href="#">PS9 Kanji Cards</a>
+      <a class="navbar-brand" href="">PS9 Kanji Cards</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,7 +32,7 @@
       </ul>
      
      <ul class="nav pull-right">
-            <li><span class="badge alert-success"> <%= @flashcards.count %> Cards  </li>
+            <li><span class="badge alert-success"> <%= @flashcards.count %> Cards  </span></li>
         </ul>
      <!-- , class: "btn btn-primary" <span class="badge alert-success"> <%= @flashcards.count %> -->
   </div><!-- /.container-fluid -->
@@ -40,6 +40,8 @@
 
 <%= yield %>
 
-<h8>©2014 Tim Winchester & Seth Porter</h8>
+<div class="well well-sm">
+<h8><b>©2014</b> Tim Winchester & Seth Porter</h8>
+</div>
 </body>
 </html>
