@@ -5,7 +5,10 @@ class FlashcardsController < ApplicationController
   def new
     @new_flashcard = Flashcard.new
     @flashcards = Flashcard.all
-    @random_card = rand(Flashcard.count - 1) + 1
+    @random_card = rand(Flashcard.maximum('id')) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id')) + 1
+    end
 
   end
 
@@ -14,7 +17,10 @@ class FlashcardsController < ApplicationController
     destroy_flashcard.destroy
     redirect_to :action => :index
     @flashcards = Flashcard.all
-    @random_card = rand(Flashcard.count - 1) + 1
+    @random_card = rand(Flashcard.maximum('id')) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id')) + 1
+    end
 
   end
 
@@ -22,14 +28,20 @@ class FlashcardsController < ApplicationController
     Flashcard.create(:keyword => params[:flashcard][:keyword], :kanji => params[:flashcard][:kanji])
     redirect_to :action => :index
     @flashcards = Flashcard.all
-    @random_card = rand(Flashcard.count - 1) + 1
+    @random_card = rand(Flashcard.maximum('id')) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id')) + 1
+    end
 
   end
 
   def edit
     @edit_flashcard = Flashcard.find_by_id(params[:id])
     @flashcards = Flashcard.all
-    @random_card = rand(Flashcard.count - 1) + 1
+    @random_card = rand(Flashcard.maximum('id')) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id')) + 1
+    end
 
   end
 
@@ -38,7 +50,10 @@ class FlashcardsController < ApplicationController
     update_flashcard.update(:keyword => params[:flashcard][:keyword], :kanji => params[:flashcard][:kanji])
     redirect_to :action => :index
     @flashcards = Flashcard.all
-    @random_card = rand(Flashcard.count - 1) + 1
+    @random_card = rand(Flashcard.maximum('id')) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id')) + 1
+    end
 
   end
 
@@ -57,7 +72,10 @@ class FlashcardsController < ApplicationController
     @answer_flashcard = Flashcard.new
     @answer_flashcard.kanji = test_flashcard.kanji
     @flashcards = Flashcard.all
-    @random_card = rand(Flashcard.count - 1) + 1
+    @random_card = rand(Flashcard.maximum('id')) + 1
+    while not Flashcard.find_by_id(@random_card)
+      @random_card = rand(Flashcard.maximum('id')) + 1
+    end
 
   end
 
